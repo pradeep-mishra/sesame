@@ -4,6 +4,16 @@ Sesame is a Mac app that finds files by what is inside them: photos, PDFs, docum
 
 Privacy promise: everything stays on your Mac and nothing about your files, your text or your searches is sent anywhere. The only download is the model file, once, from huggingface.co. Sesame only reads your files. It never changes, moves or deletes one.
 
+## Screenshots
+
+![Pressing the shortcut, typing a query and moving through the results](docs/images/demo.gif)
+
+The search panel from shortcut to result.
+
+First-run Setup lists folders with counts and a time estimate before anything is indexed.
+
+The screenshots use made-up demo files.
+
 ## What it does
 
 - Press Control+Option+Space in any app to open the search panel. You can change the shortcut in Settings.
@@ -16,13 +26,13 @@ Privacy promise: everything stays on your Mac and nothing about your files, your
 
 Files Sesame reads, by extension. Anything else is ignored.
 
-| Kind | Extensions |
-| --- | --- |
-| Photos | JPEG, PNG, HEIC, WebP, TIFF, GIF |
-| PDFs | pdf |
-| Documents | txt, md, rtf, docx, html, odt |
-| Audio | mp3, m4a, wav, aac, flac |
-| Video | mp4, mov, m4v |
+| Kind      | Extensions                       |
+| --------- | -------------------------------- |
+| Photos    | JPEG, PNG, HEIC, WebP, TIFF, GIF |
+| PDFs      | pdf                              |
+| Documents | txt, md, rtf, docx, html, odt    |
+| Audio     | mp3, m4a, wav, aac, flac         |
+| Video     | mp4, mov, m4v                    |
 
 A damaged file, or a password-protected PDF, is skipped and listed in Settings as "could not read". It does not stop the rest.
 
@@ -54,6 +64,7 @@ These steps come from reading the scripts. None of them were run for this README
    The script clones `https://github.com/ggml-org/llama.cpp` at tag b11461 (commit 4d756bc) into `third_party/llama.cpp` if that folder has no `.git`. It refuses any other commit. It applies two patches from `scripts/`, then builds static libraries with Metal into `third_party/llama.cpp/build`. `SESAME_LLAMA_PATCH=0` skips the second patch (`llama.cpp-no-logits.patch`). The first patch (`llama.cpp-vision-only.patch`) is always applied.
 
    llama.cpp is not in the repo. A fresh clone has no `third_party/llama.cpp` folder, and `scripts/build-llama.sh` fetches the pinned version into it and applies the patches. This was read from the script and not run on a fresh clone, so it is not confirmed.
+
 3. Build the app and the helper:
 
    ```
@@ -61,6 +72,7 @@ These steps come from reading the scripts. None of them were run for this README
    ```
 
    `scripts/verify.sh` builds with `-Xswiftc -warnings-as-errors`. Plain `swift build -c release` is what `scripts/bundle.sh` asks for.
+
 4. Make the app bundle:
 
    ```
@@ -68,6 +80,7 @@ These steps come from reading the scripts. None of them were run for this README
    ```
 
    This writes `dist/Sesame.app`. It copies `Resources/Info.plist` and `Resources/AppIcon.icns`, the `Sesame` binary and the `SesameHelper` binary. It needs `Resources/AppIcon.icns`, which is in the repo. If it is missing, run `scripts/make-icon.swift`.
+
 5. Open `dist/Sesame.app`.
 
 Signing: `bundle.sh` signs ad hoc (`codesign --sign -`). The helper is signed first. The app is signed with `Resources/Sesame.entitlements`, which holds one entry, Apple Events automation. There is no developer ID signing, notarization or installer. Whether macOS Gatekeeper lets an ad hoc signed copy open on another Mac was not checked.
