@@ -1,0 +1,72 @@
+# Expected file counts per kind for a built fixture folder, from the spec's Fixtures section, written by hand.
+# Columns: folder (the folder's own name, under the fixture root), kind, count. kit-fixtures.sh expect counts <folder> compares
+# the files on disk with the rows of that folder: every row must match and no other kind may be present. A folder with no row is
+# only printed. Counts are by extension, every file under the folder (hidden folders, Caches, .git and the like included, the
+# file-gate rules not applied: those are what the product decides and the gate matrix checks); a file of an unsupported
+# extension is not a kind and is not counted (spec Goals: "not read, not counted, not listed").
+# The tree rows follow scripts/kit-lib/tree.tsv; a folder's row is the total of the group of that name.
+golden	photo	40
+tree	photo	25
+tree	document	29
+tree	pdf	11
+tree	audio	11
+tree	video	11
+plain	photo	6
+plain	document	6
+plain	pdf	1
+plain	audio	1
+plain	video	1
+excluded	photo	6
+excluded	document	9
+unsupported	photo	1
+unsupported	document	1
+damaged	photo	2
+damaged	document	2
+damaged	pdf	2
+damaged	audio	2
+damaged	video	2
+repo	photo	9
+repo	document	10
+repo	pdf	8
+repo	audio	8
+repo	video	8
+never-picked	photo	1
+never-picked	document	1
+# The home folders, the mini mix and the extra folder (plan 2): the rows follow scripts/kit-lib/home.tsv. Documents holds Work.
+Desktop	photo	3
+Desktop	document	2
+Desktop	pdf	1
+Documents	photo	6
+Documents	document	12
+Documents	pdf	8
+Documents	audio	2
+Work	photo	1
+Work	document	3
+Work	pdf	2
+Downloads	photo	4
+Downloads	document	1
+Downloads	pdf	3
+Downloads	audio	2
+Downloads	video	1
+Pictures	photo	9
+Movies	audio	1
+Movies	video	4
+extra	photo	4
+extra	document	2
+extra	pdf	1
+minimix	photo	400
+# The overlap fixture of S1.6 (plan 2, fix round C): the rows of scripts/kit-lib/overlap.tsv, six photos under photos/ and two loose.
+overlap	photo	8
+# The 500-file mix of the spec (Fixtures, S6.11; plan 5): 220 photos, 120 documents, 100 PDFs, 40 audio files, 20 video files, no code.
+mix500	photo	220
+mix500	document	120
+mix500	pdf	100
+mix500	audio	40
+mix500	video	20
+# The golden repos (job 2, plan 7, t1): every document and picture under the folder by extension, .git and the excluded files included
+# (the rules are what the product decides). Code files are never read and are not a kind: they are not counted. api-client: 3 documents
+# (retry-notes.md, .env.local.md, id_rsa.txt) and the retry diagram; the .pem, .key, .p12, .pfx and .kdbx are not a kind. legacy-sync: its
+# diagram. scratch-lab holds code files only, so it has no row.
+api-client	document	3
+api-client	photo	1
+legacy-sync	photo	1

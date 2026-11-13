@@ -1,0 +1,47 @@
+# The 40 golden photos (spec, Fixtures: 40 files across JPEG, PNG, HEIC, WebP, TIFF and GIF, 10 targets and 4 screenshots).
+# Written by hand. Columns: path (under golden/), format, role (target|other|screenshot), c1, c2, c3, objects, text.
+# photo roles: c1 sky top, c2 sky bottom, c3 ground (- for none); objects glyph:cx,cy,size;... (fractions); text -
+# screenshot role: c1 page, c2 title bar, c3 text colour; objects -; text lines joined by |, {EXACT} is replaced by
+#   the query of every exact row of fixtures/answers.csv with the note screenshot-only whose file is this path.
+# The targets must be exactly the files of the photo rows of answers.csv and the screenshots exactly the files of its
+# screenshot-only rows (kit-fixtures.sh build stops when they differ). Formats: jpeg 7, png 11, heic 6, webp 6, tiff 5, gif 5.
+photos/beach-dog.jpg	jpeg	target	#6ec6ff	#d6f0ff	#f2d9a0	🐕:0.5,0.74,0.34;🌞:0.82,0.17,0.2;🌊:0.1,0.6,0.14;🌊:0.3,0.6,0.14;🌊:0.5,0.6,0.14;🌊:0.7,0.6,0.14;🌊:0.9,0.6,0.14	-
+photos/snowy-mountain.png	png	target	#8fb8e8	#dbe9f7	#ffffff	🏔️:0.5,0.48,0.6;❄️:0.15,0.2,0.12;❄️:0.82,0.3,0.1;🌲:0.2,0.78,0.22;🌲:0.8,0.8,0.22	-
+photos/birthday-cake.heic	heic	target	#ffd1e8	#fff0f7	#c98f5b	🎂:0.5,0.64,0.5;🎈:0.15,0.28,0.2;🎈:0.85,0.3,0.2;🎉:0.5,0.14,0.14	-
+photos/night-skyline.webp	webp	target	#0b1030	#2b3a7a	#111111	🏙️:0.5,0.58,0.6;🌙:0.82,0.17,0.15;⭐:0.2,0.15,0.07;⭐:0.4,0.1,0.06;⭐:0.62,0.2,0.06	-
+photos/red-sports-car.tiff	tiff	target	#bfe3ff	#eaf6ff	#555555	🏎️:0.5,0.72,0.45;☁️:0.2,0.2,0.14;🌴:0.86,0.5,0.22	-
+photos/sunflower-field.gif	gif	target	#8fd3ff	#e6f6ff	#7cae3f	🌻:0.2,0.72,0.3;🌻:0.5,0.76,0.35;🌻:0.8,0.72,0.3;☀️:0.5,0.15,0.16	-
+photos/sailboat-sunset.jpg	jpeg	target	#ff7e47	#ffd27a	#1f5f9c	⛵:0.5,0.62,0.42;🌅:0.5,0.28,0.3	-
+photos/taco-cart.png	png	target	#ffe29a	#fff3d1	#8a8a8a	🌮:0.4,0.68,0.38;🌮:0.62,0.72,0.3;🌶️:0.82,0.56,0.16;🥑:0.2,0.58,0.16	-
+photos/elephant-grassland.heic	heic	target	#9ed8ff	#e7f6ff	#b9c968	🐘:0.5,0.68,0.46;🌳:0.15,0.6,0.28;☀️:0.84,0.15,0.16	-
+photos/steam-train.webp	webp	target	#c9d7e6	#eef3f8	#7a7a6a	🚂:0.5,0.64,0.42;☁️:0.25,0.2,0.16;☁️:0.75,0.15,0.12	-
+photos/DSC_20260311_0042.jpg	jpeg	other	#9bd4ff	#e1f3ff	#6a9a4a	🌳:0.3,0.62,0.36;🌳:0.55,0.66,0.3;🏞️:0.8,0.4,0.3	-
+photos/PXL_20260502_081533.png	png	other	#ffe6f0	#fff7fb	#8fcf6a	🌷:0.25,0.7,0.3;🌷:0.5,0.74,0.34;🌷:0.75,0.7,0.3	-
+photos/cat-on-sofa.heic	heic	other	#f3e5d0	#fbf3e6	#a65e3a	🐈:0.5,0.6,0.34;🛋️:0.5,0.74,0.46	-
+photos/coffee-and-book.webp	webp	other	#e9d8c4	#f6ebdd	#7b4f2c	☕:0.35,0.62,0.34;📖:0.65,0.66,0.38	-
+photos/pizza-night.tiff	tiff	other	#3b2a20	#6b4a36	#8c2f1b	🍕:0.5,0.62,0.52;🍷:0.82,0.58,0.2	-
+photos/guitar-stage.gif	gif	other	#2a1b3d	#5c3a78	#2b1d14	🎸:0.5,0.6,0.55;🎤:0.2,0.62,0.2	-
+photos/giraffe-savanna.jpg	jpeg	other	#ffd9a0	#fff0d6	#c9b26a	🦒:0.5,0.55,0.62;🌳:0.82,0.7,0.26	-
+photos/rocket-launch.png	png	other	#0a1a3a	#3a6ab5	#6b6b6b	🚀:0.5,0.4,0.5;☁️:0.3,0.75,0.2;☁️:0.7,0.75,0.2	-
+photos/rainy-umbrella.heic	heic	other	#8e9aa8	#c4ccd4	#5e6a74	☔:0.5,0.5,0.55;💧:0.2,0.3,0.1;💧:0.8,0.25,0.1	-
+photos/desert-cactus.webp	webp	other	#ffcf8a	#ffeccc	#e0b070	🌵:0.35,0.62,0.45;🌵:0.7,0.7,0.3;🌞:0.85,0.15,0.16	-
+photos/penguin-ice.tiff	tiff	other	#b8e0f5	#e8f6ff	#ffffff	🐧:0.4,0.7,0.34;🐧:0.62,0.74,0.26;🧊:0.82,0.6,0.16	-
+photos/sushi-plate.gif	gif	other	#e8e0d6	#f6f1ea	#3a2a22	🍣:0.35,0.62,0.34;🍣:0.62,0.66,0.34;🥢:0.5,0.4,0.16	-
+photos/camping-tent.jpg	jpeg	other	#16254a	#3a4f8a	#2c3a1e	⛺:0.4,0.62,0.4;🔥:0.7,0.72,0.26;🌲:0.12,0.6,0.26	-
+photos/old-castle.png	png	other	#a9d4f2	#e4f3fc	#6f9a4c	🏰:0.5,0.55,0.62;🌳:0.15,0.72,0.22;🌳:0.85,0.72,0.22	-
+photos/school-bus.heic	heic	other	#bfe3ff	#eaf6ff	#5a5a5a	🚌:0.5,0.7,0.46;🌳:0.15,0.55,0.22	-
+photos/parrot-branch.webp	webp	other	#9be2c0	#d9f5e6	#3f7a4a	🦜:0.5,0.55,0.5;🍃:0.2,0.3,0.14;🍃:0.8,0.35,0.14	-
+photos/aquarium-fish.tiff	tiff	other	#2f8fd0	#8fd6f5	#e8d49a	🐠:0.35,0.45,0.28;🐟:0.65,0.35,0.22;🪸:0.5,0.78,0.26	-
+photos/autumn-leaves.gif	gif	other	#f2c27a	#fbe5bf	#a65a22	🍂:0.25,0.65,0.3;🍁:0.55,0.7,0.34;🍂:0.8,0.62,0.26	-
+photos/ice-cream-cones.jpg	jpeg	other	#ffd6e8	#fff0f6	#f7e3c4	🍦:0.35,0.55,0.5;🍨:0.68,0.6,0.38	-
+photos/wall-clock.png	png	other	#e6e0d6	#f6f2ea	#8b6b4a	⏰:0.5,0.5,0.6	-
+photos/vintage-camera.heic	heic	other	#d9cdb8	#f1e9da	#6b4f33	📷:0.5,0.6,0.52;🎞️:0.2,0.7,0.2	-
+photos/snowman-yard.webp	webp	other	#a8c4e0	#e4eef8	#ffffff	⛄:0.5,0.62,0.5;🌲:0.18,0.65,0.26;❄️:0.8,0.25,0.1	-
+photos/whale-ocean.tiff	tiff	other	#7ec3ea	#cfeafa	#1d5e9a	🐋:0.5,0.6,0.5;🌊:0.2,0.62,0.16;🌊:0.8,0.62,0.16	-
+photos/network-cable.gif	gif	other	#d8dde3	#eef1f4	#9aa3ad	🔌:0.4,0.58,0.4;📡:0.75,0.5,0.3	-
+photos/shipping-boxes.jpg	jpeg	other	#e4d6bf	#f4ecdc	#a67c52	📦:0.35,0.64,0.4;📦:0.62,0.68,0.34;🚚:0.82,0.4,0.22	-
+photos/server-room.png	png	other	#1a2230	#2e3a4e	#10151f	🖥️:0.35,0.58,0.4;💾:0.68,0.62,0.28	-
+photos/screenshot-browser-error.png	png	screenshot	#ffffff	#dee1e6	#202124	-	This site can't be reached|{EXACT}|The connection was interrupted while the page was loading.|Try reloading the page.
+photos/screenshot-dashboard.png	png	screenshot	#10151f	#1c2433	#e6edf7	-	Production overview|{EXACT}|requests 2431 per minute|error rate 0.4 percent
+photos/screenshot-chat.png	png	screenshot	#f4f5f7	#4a154b	#1d1c1d	-	Messages|Hi Sam your purchase order|{EXACT}|has shipped today
+photos/screenshot-terminal.png	png	screenshot	#0c0c0c	#2d2d2d	#33ff66	-	$ {EXACT}|deployment billing restarted|$

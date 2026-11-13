@@ -1,0 +1,93 @@
+id,group,query,file,locator,window_s,note
+photo-01,photo,a dog on the beach,photos/beach-dog.jpg,,,jpeg; a dog walking on sand with waves and a sun
+photo-02,photo,a snow covered mountain,photos/snowy-mountain.png,,,png; a snowy mountain with pine trees
+photo-03,photo,a birthday cake with candles,photos/birthday-cake.heic,,,heic; a cake with three lit candles and balloons
+photo-04,photo,a city skyline at night,photos/night-skyline.webp,,,webp; tall buildings under a night sky with a moon
+photo-05,photo,a red sports car,photos/red-sports-car.tiff,,,tiff; a race car on a grey road
+photo-06,photo,a field of sunflowers,photos/sunflower-field.gif,,,gif; three sunflowers on green grass
+photo-07,photo,a sailboat at sunset,photos/sailboat-sunset.jpg,,,jpeg; a sailboat on blue water under an orange sky
+photo-08,photo,tacos on a street food stand,photos/taco-cart.png,,,png; tacos with chili and avocado
+photo-09,photo,an elephant in the grassland,photos/elephant-grassland.heic,,,heic; an elephant on grass with a tree
+photo-10,photo,a steam train,photos/steam-train.webp,,,webp; a steam locomotive under clouds
+exact-01,exact,ERR_CONNECTION_RESET,photos/screenshot-browser-error.png,,,screenshot-only
+exact-02,exact,db-replica-lag-17s,photos/screenshot-dashboard.png,,,screenshot-only
+exact-03,exact,PO-7781-ZETA,photos/screenshot-chat.png,,,screenshot-only
+exact-04,exact,kubectl rollout restart deploy/billing,photos/screenshot-terminal.png,,,screenshot-only
+exact-05,exact,INV-2026-04417,pdfs/invoice-2026-04417.pdf,1,,in the file name and in the text of page 1
+exact-06,exact,Q3-board-deck.pdf,pdfs/Q3-board-deck.pdf,,,in the file name
+exact-07,exact,DSC_20260311_0042.jpg,photos/DSC_20260311_0042.jpg,,,in the file name
+exact-08,exact,PXL_20260502_081533.png,photos/PXL_20260502_081533.png,,,in the file name
+exact-09,exact,sleep-interview.m4a,audio/sleep-interview.m4a,,,in the file name
+exact-10,exact,safari-zebra.mp4,video/safari-zebra.mp4,,,in the file name
+exact-11,exact,zq-lantern-4471,docs/field-notes.txt,,,in the text of the txt document
+exact-12,exact,BX-204-RETURN,docs/field-notes.md,,,in the text of the md document
+exact-13,exact,trk-9921-WQ,docs/shipping-update.html,,,in the text of the html document
+exact-14,exact,HR-POLICY-2025-REV3,pdfs/employee-handbook.pdf,3,,in the text of page 3
+exact-15,exact,PNR-XJ29KD,pdfs/boarding-pass.pdf,1,,in the text of page 1
+exact-16,exact,tax-return-2025-draft.pdf,pdfs/tax-return-2025-draft.pdf,,,in the file name
+exact-17,exact,meeting-minutes-2026-02-19.docx,docs/meeting-minutes-2026-02-19.docx,,,in the file name
+exact-18,exact,budget-2026.odt,docs/budget-2026.odt,,,in the file name
+exact-19,exact,WARRANTY-MS-4410,pdfs/warranty-maple-street.pdf,2,,in the text of page 2
+exact-20,exact,interview-raw-take3.wav,audio/interview-raw-take3.wav,,,in the file name
+decoy-01,decoy,ERR_CONNECTION_RESET,photos/network-cable.gif,,,decoy-for=exact-01; a network cable and a dish
+decoy-02,decoy,db-replica-lag-17s,photos/server-room.png,,,decoy-for=exact-02; a server and a disk
+decoy-03,decoy,PO-7781-ZETA,photos/shipping-boxes.jpg,,,decoy-for=exact-03; parcels and a delivery truck
+decoy-04,decoy,kubectl rollout restart deploy/billing,photos/server-room.png,,,decoy-for=exact-04; a server and a disk
+decoy-05,decoy,INV-2026-04417,pdfs/invoice-2026-04418.pdf,,,decoy-for=exact-05; the next invoice number
+decoy-06,decoy,Q3-board-deck.pdf,pdfs/Q2-board-deck.pdf,,,decoy-for=exact-06; the quarter before
+decoy-07,decoy,DSC_20260311_0042.jpg,photos/PXL_20260502_081533.png,,,decoy-for=exact-07; another camera style name
+decoy-08,decoy,PXL_20260502_081533.png,photos/DSC_20260311_0042.jpg,,,decoy-for=exact-08; another camera style name
+decoy-09,decoy,sleep-interview.m4a,audio/sleep-podcast.m4a,,,decoy-for=exact-09; the same topic in another recording
+decoy-10,decoy,safari-zebra.mp4,video/safari-giraffe.mp4,,,decoy-for=exact-10; another safari clip
+decoy-11,decoy,zq-lantern-4471,docs/todo-list.rtf,,,decoy-for=exact-11; another set of personal notes
+decoy-12,decoy,BX-204-RETURN,docs/shipping-update.html,,,decoy-for=exact-12; a note about returning an order
+decoy-13,decoy,trk-9921-WQ,photos/shipping-boxes.jpg,,,decoy-for=exact-13; parcels and a delivery truck
+decoy-14,decoy,HR-POLICY-2025-REV3,docs/meeting-minutes-2026-02-19.docx,,,decoy-for=exact-14; minutes of a staff meeting
+decoy-15,decoy,PNR-XJ29KD,pdfs/hotel-booking.pdf,,,decoy-for=exact-15; another travel document
+decoy-16,decoy,tax-return-2025-draft.pdf,pdfs/tax-return-2024.pdf,,,decoy-for=exact-16; the year before
+decoy-17,decoy,meeting-minutes-2026-02-19.docx,docs/todo-list.rtf,,,decoy-for=exact-17; another office document
+decoy-18,decoy,budget-2026.odt,pdfs/Q2-board-deck.pdf,,,decoy-for=exact-18; another finance document
+decoy-19,decoy,WARRANTY-MS-4410,pdfs/lease-2024.pdf,,,decoy-for=exact-19; another home document
+decoy-20,decoy,interview-raw-take3.wav,audio/sleep-interview.m4a,,,decoy-for=exact-20; another interview recording
+missing-01,missing,zxqv-plumbus-8841-nowhere,,,,present in no file name and no text; the closest files by meaning are shown and nothing fails
+pdf-01,pdf,the clause about pets in the lease,pdfs/lease-2024.pdf,7,,box=72:430:468:60; anchor=pets are allowed only with the written consent of the landlord
+pdf-02,pdf,the policy on working from home,pdfs/employee-handbook.pdf,5,,box=72:420:468:60; anchor=employees may work from home on up to two days each week
+pdf-03,pdf,how long the washing machine warranty lasts,pdfs/warranty-maple-street.pdf,3,,box=72:440:468:60; anchor=the washing machine is covered for five years against faults
+pdf-04,pdf,the deductions for charity donations in my tax return,pdfs/tax-return-2025-draft.pdf,4,,box=72:410:468:60; anchor=donations to charity total three hundred and ten dollars
+pdf-05,pdf,what the insurance says about burst pipes,pdfs/insurance-policy.pdf,4,,box=72:450:468:60; anchor=burst pipes are covered up to twenty thousand dollars per event
+pdf-06,pdf,the car service report about the brake pads,pdfs/car-service-report.pdf,2,,box=72:400:468:60; anchor=the front brake pads were replaced and measure ten millimetres
+pdf-07,pdf,the recipe for lemon cake,pdfs/recipe-collection.pdf,6,,box=72:460:468:60; anchor=bake the lemon cake for forty five minutes at one hundred and eighty degrees
+pdf-08,pdf,when the keynote speech is on the conference schedule,pdfs/conference-schedule.pdf,3,,box=72:430:468:60; anchor=keynote speaker opens the conference on Friday at nine
+pdf-09,pdf,how to clean the dishwasher filter,pdfs/dishwasher-manual.pdf,9,,box=72:420:468:60; anchor=remove the filter and rinse it under warm water every month
+pdf-10,pdf,the gate and boarding time on my boarding pass,pdfs/boarding-pass.pdf,1,,box=72:470:468:60; anchor=boarding closes at gate twelve forty minutes before departure
+doc-01,doc,my notes about when the ferry leaves the island,docs/field-notes.txt,,,anchor=the ferry leaves from pier nine at dawn
+doc-02,doc,where the tent poles are kept,docs/field-notes.md,,,anchor=the tent poles are stored under the stairs
+doc-03,doc,the update about where my parcel was left,docs/shipping-update.html,,,anchor=the parcel was left with a neighbour at number twelve
+doc-04,doc,minutes where they decided to repaint the meeting room,docs/meeting-minutes-2026-02-19.docx,,,anchor=the committee agreed to repaint the meeting room in March
+doc-05,doc,the plan that raises the training budget,docs/budget-2026.odt,,,anchor=the training budget is raised to six thousand dollars
+doc-06,doc,my to do list with the birthday gift,docs/todo-list.rtf,,,anchor=buy a birthday gift for Maria before Friday
+scanned-01,scanned,the receipt for the bicycle repair,pdfs/scanned-receipt.pdf,2,,anchor=Bicycle repair receipt total 84 dollars paid in cash
+long60-01,long60,saffron windmill ledger,pdfs/annual-report-60p.pdf,12,,unique string on page 12; picture pages with no text layer
+long60-02,long60,cobalt teapot register,pdfs/annual-report-60p.pdf,55,,unique string on page 55; picture pages with no text layer
+boundary-01,boundary,kestrel marmalade sundial,boundary/one-page.pdf,1,,last page of a 1 page pdf
+boundary-02,boundary,bramble octagon velvet,boundary/thirty-pages.pdf,30,,last page of a 30 page pdf
+boundary-03,boundary,juniper cascade ferrule,boundary/thirty-one-pages.pdf,31,,last page of a 31 page pdf
+audio-01,audio,where they talk about sleep,audio/sleep-interview.m4a,02:10,30,I sleep badly these days so the doctor told me to go to bed earlier and keep the bedroom dark and quiet at night
+audio-02,audio,where they explain how to make pancakes,audio/memo-0417.mp3,01:10,30,To make the pancakes you whisk two eggs with a cup of milk and fold in fresh blueberries before the pan gets hot
+audio-03,audio,where they discuss when the bridge opens,audio/standup-notes.flac,00:20,30,The new bridge over the river will open to traffic in the spring after the engineers finish testing the cables
+audio-04,audio,where someone talks about a dentist appointment,audio/call-recording-b.aac,00:55,30,Our dentist said the cavity is small and she will fill it next Tuesday with a white filling that matches the tooth
+audio-05,audio,where they describe a volcano eruption,audio/lecture-04.m4a,01:40,30,The volcano erupted for three days and covered the nearby villages with ash while the families moved to the coast
+audio-06,audio,where they talk about a marathon race,audio/field-recording.mp3,00:30,30,The marathon starts at dawn and the runners follow the harbour road past the lighthouse to the finish line
+audio-07,audio,where they remind someone to water the garden,audio/voice-note-17.wav,01:25,30,Remember to water the tomato plants every morning and add compost around the roots to help them grow strong
+audio-08,audio,where the council decides about a library,audio/town-hall.flac,00:45,30,The council voted to build a new library next to the park and to keep it open late on weekday evenings
+video-01,video,zebra in a video,video/safari-zebra.mp4,00:42,10,a zebra standing on green grass with a tree and a cloud
+video-02,video,a whale swimming in the ocean,video/ocean-trip.mov,00:20,10,a whale in deep blue water
+video-03,video,a helicopter flying over a city,video/aerial-shoot.mp4,00:35,10,a helicopter in a grey sky with clouds
+video-04,video,a surfer riding a wave,video/weekend-0412.m4v,00:15,10,a surfer on a wave between two waves
+video-05,video,a flamingo standing in water,video/wetland-walk.mov,00:50,10,a pink flamingo in shallow blue water
+video-06,video,a ferris wheel at an amusement park,video/fair-day.mp4,00:25,10,a lit ferris wheel against a night sky
+video-07,video,a butterfly on a flower,video/garden-clip.m4v,00:40,10,a butterfly above pink blossom on green grass
+video-08,video,a tractor in a field,video/farm-visit.mp4,00:10,10,a tractor driving under a bright sun
+videospeech-01,videospeech,someone fixing the light in a tower by the sea,video/clip-v11.mp4,00:20,10,The lighthouse keeper climbed the long stairs to repair the broken lamp before the storm reached the harbour
+repodoc-01,repodoc,retry a failed call with backoff,api-client/docs/retry-notes.md,,,a note about retrying a failed call with backoff in a document of a picked repo; read like any document
+repodoc-02,repodoc,retry a failed call with backoff,api-client/docs/retry-diagram.png,,,a drawn retry loop in a picture of a picked repo; read like any picture

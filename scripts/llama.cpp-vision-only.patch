@@ -1,0 +1,84 @@
+diff --git a/tools/mtmd/clip.cpp b/tools/mtmd/clip.cpp
+index f437040..864d534 100644
+--- a/tools/mtmd/clip.cpp
++++ b/tools/mtmd/clip.cpp
+@@ -4013,9 +4013,9 @@ struct clip_init_result clip_init(const char * fname, struct clip_context_params
+             /* skip_tensors */ false,
+             ctx_params.progress_callback,
+             ctx_params.progress_callback_user_data);
+-        bool skip_audio = false;
++        bool skip_audio = ctx_params.vision_only;
+ 
+-        if (loader.has_vision) {
++        if (loader.has_vision && !ctx_params.audio_only) {
+             ctx_vision = new clip_ctx(ctx_params);
+             loader.load_hparams(ctx_vision->model, CLIP_MODALITY_VISION);
+             loader.load_tensors(*ctx_vision);
+@@ -4026,7 +4026,7 @@ struct clip_init_result clip_init(const char * fname, struct clip_context_params
+ 
+             // TODO: we don't support audio for Gemma 3N, but GGUF contains audio tensors
+             // we can remove this check when we implement audio support for Gemma 3N
+-            skip_audio = ctx_vision->model.proj_type == PROJECTOR_TYPE_GEMMA3NV;
++            skip_audio = skip_audio || ctx_vision->model.proj_type == PROJECTOR_TYPE_GEMMA3NV;
+         }
+ 
+         if (loader.has_audio && !skip_audio) {
+@@ -4039,7 +4039,7 @@ struct clip_init_result clip_init(const char * fname, struct clip_context_params
+             }
+         }
+ 
+-        if (loader.has_gen_audio) {
++        if (loader.has_gen_audio && !ctx_params.vision_only) {
+             ctx_gen_audio = new clip_ctx(ctx_params);
+             loader.load_hparams(ctx_gen_audio->model, CLIP_MODALITY_GEN_AUDIO);
+             loader.load_tensors(*ctx_gen_audio);
+diff --git a/tools/mtmd/clip.h b/tools/mtmd/clip.h
+index 9e12702..573188c 100644
+--- a/tools/mtmd/clip.h
++++ b/tools/mtmd/clip.h
+@@ -58,6 +58,8 @@ struct clip_context_params {
+     bool no_alloc;
+     mtmd_progress_callback progress_callback;
+     void * progress_callback_user_data;
++    bool vision_only; // load the vision tower only: skip the audio towers (tensors, buffers, warmup)
++    bool audio_only;
+ };
+ 
+ struct clip_init_result {
+diff --git a/tools/mtmd/mtmd.cpp b/tools/mtmd/mtmd.cpp
+index 9e7b1cc..b1143c0 100644
+--- a/tools/mtmd/mtmd.cpp
++++ b/tools/mtmd/mtmd.cpp
+@@ -472,6 +472,8 @@ mtmd_context_params mtmd_context_params_default() {
+         /* batch_max_tokens  */ 1024,
+         /* progress_callback */ nullptr,
+         /* progress_callback_user_data */ nullptr,
++        /* vision_only       */ false,
++        /* audio_only        */ false,
+     };
+     return params;
+ }
+@@ -577,6 +579,8 @@ struct mtmd_context {
+             /* no_alloc          */ no_alloc,
+             /* progress_callback */ ctx_params.progress_callback,
+             /* progress_callback_user_data */ ctx_params.progress_callback_user_data,
++            /* vision_only       */ ctx_params.vision_only,
++            /* audio_only        */ ctx_params.audio_only,
+         };
+ 
+         auto res = clip_init(mmproj_fname, ctx_clip_params);
+diff --git a/tools/mtmd/mtmd.h b/tools/mtmd/mtmd.h
+index bcd76a9..d924009 100644
+--- a/tools/mtmd/mtmd.h
++++ b/tools/mtmd/mtmd.h
+@@ -122,6 +122,10 @@ struct mtmd_context_params {
+     // If it returns false, model loading is immediately aborted.
+     mtmd_progress_callback progress_callback;
+     void * progress_callback_user_data;
++
++    // load the vision tower only and skip the audio towers of the mmproj file (less memory for photo-only use)
++    bool vision_only;
++    bool audio_only;
+ };
+ 
+ MTMD_API const char * mtmd_default_marker(void);

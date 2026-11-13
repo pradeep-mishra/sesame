@@ -1,0 +1,88 @@
+# The throwaway home's five suggested folders (spec, Goals: Desktop, Documents, Downloads, Pictures, Movies), a git repo under
+# Developer/, and the extra folder of S6.10, written by hand. kit-fixtures.sh build homefolders makes the rows that start with
+# home/ under $KIT_ROOT/home/, and build extra makes the rows that start with extra/ under $KIT_ROOT/fixtures/extra/.
+# Columns, separated by one tab: path, kind, argument. Names hold no space. File names are unique over the whole table.
+# Kinds are those of tree.tsv (jpeg N, png N, text, lines, rtf, html, docx, odt, pdf, wav, mp4), plus
+#   filler N  the N-th small generated photo of the filler set (each has its own bytes; the folder rows below use 0 to 21).
+# The counts per folder and kind (everything under the folder, Documents/Work included) are the rows of expected-counts.tsv:
+#   Desktop   photo 3, document 2, pdf 1
+#   Documents photo 6, document 12, pdf 8, audio 2 (of which Documents/Work: photo 1, document 3, pdf 2)
+#   Downloads photo 4, document 1, pdf 3, audio 2, video 1
+#   Pictures  photo 9
+#   Movies    audio 1, video 4
+#   extra     photo 4, document 2, pdf 1
+# The repo Developer/atlas-notes holds supported files that its .gitignore excludes (a picture folder, every .jpg, secrets.txt)
+# next to supported files it does not exclude.
+home/Desktop/desktop-photo-1.jpg	filler	0
+home/Desktop/desktop-photo-2.jpg	filler	1
+home/Desktop/desktop-photo-3.jpg	filler	2
+home/Desktop/desktop-note.txt	text	Desktop note: pick up the parcel from the post office on Friday.
+home/Desktop/desktop-todo.txt	text	Desktop todo: water the plants, call the dentist, renew the library card.
+home/Desktop/desktop-invoice.pdf	pdf	Invoice for the desktop shelf delivery
+home/Documents/documents-photo-1.jpg	filler	3
+home/Documents/documents-photo-2.jpg	filler	4
+home/Documents/documents-photo-3.jpg	filler	5
+home/Documents/documents-photo-4.jpg	filler	6
+home/Documents/documents-photo-5.jpg	filler	7
+home/Documents/report-q1.txt	text	Report for the first quarter: sales of garden tools rose by a tenth.
+home/Documents/report-q2.txt	text	Report for the second quarter: the new greenhouse opened in May.
+home/Documents/meeting-notes.txt	text	Meeting notes: the committee agreed to repaint the village hall.
+home/Documents/budget-draft.txt	text	Budget draft: roof repairs, a new boiler and two ladders.
+home/Documents/readme-docs.md	text	# Readme for the documents folder
+home/Documents/ideas.md	text	# Ideas: a bread oven in the garden and a rain barrel by the shed
+home/Documents/page.html	html	A web page about restoring old clocks.
+home/Documents/memo.rtf	rtf	Memo about the new recycling timetable.
+home/Documents/letter.docx	docx	Letter to the council about the broken streetlight.
+home/Documents/contract-1.pdf	pdf	Contract for the sale of a second hand piano
+home/Documents/contract-2.pdf	pdf	Contract for the hire of a market stall
+home/Documents/contract-3.pdf	pdf	Contract for the cleaning of the office windows
+home/Documents/contract-4.pdf	pdf	Contract for the supply of firewood
+home/Documents/contract-5.pdf	pdf	Contract for the repair of the garden gate
+home/Documents/contract-6.pdf	pdf	Contract for the care of two cats during the holiday
+home/Documents/voice-memo-1.wav	wav
+home/Documents/voice-memo-2.wav	wav
+home/Documents/Work/work-photo-1.jpg	filler	8
+home/Documents/Work/work-plan.txt	text	Work plan: the harvest festival stall needs six tables and a banner.
+home/Documents/Work/work-notes.md	text	# Work notes from the stall planning call
+home/Documents/Work/work-brief.html	html	A brief for the harvest festival volunteers.
+home/Documents/Work/work-deck-1.pdf	pdf	Deck one about the harvest festival layout
+home/Documents/Work/work-deck-2.pdf	pdf	Deck two about the harvest festival budget
+home/Downloads/downloads-photo-1.jpg	filler	9
+home/Downloads/downloads-photo-2.jpg	filler	10
+home/Downloads/downloads-photo-3.jpg	filler	11
+home/Downloads/downloads-photo-4.jpg	filler	12
+home/Downloads/setup-guide.odt	odt	Setup guide for the label printer.
+home/Downloads/manual-1.pdf	pdf	Manual for the kitchen scales
+home/Downloads/manual-2.pdf	pdf	Manual for the electric kettle
+home/Downloads/manual-3.pdf	pdf	Manual for the bicycle pump
+home/Downloads/podcast-1.wav	wav
+home/Downloads/podcast-2.wav	wav
+home/Downloads/clip-1.mp4	mp4
+home/Pictures/pictures-photo-1.jpg	filler	13
+home/Pictures/pictures-photo-2.jpg	filler	14
+home/Pictures/pictures-photo-3.jpg	filler	15
+home/Pictures/pictures-photo-4.jpg	filler	16
+home/Pictures/pictures-photo-5.jpg	filler	17
+home/Pictures/pictures-photo-6.jpg	filler	18
+home/Pictures/pictures-photo-7.jpg	filler	19
+home/Pictures/pictures-photo-8.jpg	filler	20
+home/Pictures/pictures-photo-9.jpg	filler	21
+home/Movies/movie-soundtrack.wav	wav
+home/Movies/movie-1.mp4	mp4
+home/Movies/movie-2.mp4	mp4
+home/Movies/movie-3.mp4	mp4
+home/Movies/movie-4.mp4	mp4
+home/Developer/atlas-notes/.gitignore	lines	build/|*.jpg|secrets.txt
+home/Developer/atlas-notes/README.md	text	# Atlas notes, a small notebook of map sketches
+home/Developer/atlas-notes/docs/guide.txt	text	Guide to the atlas notes: how the sketches are filed.
+home/Developer/atlas-notes/notes.pdf	pdf	Atlas notes printed as a single page
+home/Developer/atlas-notes/build/output.png	png	1
+home/Developer/atlas-notes/assets/logo.jpg	jpeg	2
+home/Developer/atlas-notes/secrets.txt	text	Secrets: the made up passphrase of the atlas notes club.
+extra/extra-photo-1.jpg	jpeg	1
+extra/extra-photo-2.jpg	jpeg	2
+extra/extra-photo-3.jpg	jpeg	3
+extra/extra-photo-4.jpg	jpeg	4
+extra/extra-note-1.txt	text	Extra note one: a folder added after the first index.
+extra/extra-note-2.md	text	# Extra note two for the added folder
+extra/extra-report.pdf	pdf	Extra report on the added folder

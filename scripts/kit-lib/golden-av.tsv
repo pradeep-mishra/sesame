@@ -1,0 +1,112 @@
+# The golden audio and video clips (plan 5, spec Fixtures: Audio 12 clips, Video 12 clips), written by hand. Read by `kit-fixtures.sh build golden-av`
+# (fixtures/golden-av/{audio,video,damaged}) beside fixtures/answers.csv, which stays the only place that says where a sentence starts.
+# Tab separated, one line a fact; a line that starts with # is a comment.
+#   aclip    <path under golden-av> <seconds>                         an audio clip of that length (the extension picks the codec)
+#   vclip    <path> <seconds> <audio: none|speech|silent>             a video clip; none: no audio track; speech: the clip's say lines are its
+#                                                                    soundtrack; silent: an audio track of digital silence
+#   say      <path> <start s> <gain> <text>                           one line spoken by `say` (voice Samantha) from that second
+#   sentence <path> <gain>                                            the sentence of the key row of this file (the `note`), spoken from the
+#                                                                    row's `locator`, so the key and the file cannot drift
+#   filler   <path> <from s> <to s> <gains, comma separated>          neutral counting spoken every 5 s from <from> to <to>; the gain of the
+#                                                                    slot at second t is gains[(t / 5) mod count] and its words phrase[(t / 5) mod 6]
+#   shot     <path> <start s> <dur s> <sky top> <sky bottom> <ground> <objects>
+#                                                                    one scene of a video clip, drawn like the golden photos (objects as in
+#                                                                    golden-photos.tsv: glyph:cx,cy,size;...); the shots of a clip follow each other
+#                                                                    and fill its length
+#
+# Rule of the spoken passages (D5, plan-5-tasks.md): every passage starts exactly at its row's locator and is preceded by at least 30 s of digital
+# silence (silence from second 0 when it starts under 30 s), so the reader's window starts at the first sound at or after the last lattice point and
+# so at the sentence. The filler is counting, at 7 different loudnesses, so that the envelope of every 30 s block of a clip differs (K29).
+#
+# ---- audio ----
+aclip	audio/sleep-interview.m4a	210
+filler	audio/sleep-interview.m4a	0	100	0.9,0.3,0.6,0.15,1.0,0.45,0.75
+sentence	audio/sleep-interview.m4a	1.0
+filler	audio/sleep-interview.m4a	165	210	0.9,0.3,0.6,0.15,1.0,0.45,0.75
+aclip	audio/sleep-podcast.m4a	120
+filler	audio/sleep-podcast.m4a	0	5	0.8,0.4,0.6,0.2,1.0,0.5,0.7
+say	audio/sleep-podcast.m4a	40	1.0	In this episode we talk about sleep tracking apps and whether a smart watch really knows when you are in deep sleep
+filler	audio/sleep-podcast.m4a	75	120	0.8,0.4,0.6,0.2,1.0,0.5,0.7
+aclip	audio/interview-raw-take3.wav	110
+filler	audio/interview-raw-take3.wav	0	15	0.7,0.35,0.9,0.25,0.55,1.0,0.45
+say	audio/interview-raw-take3.wav	50	1.0	Tell me about a time you led a team through a difficult project and what you learned from the result
+filler	audio/interview-raw-take3.wav	85	110	0.7,0.35,0.9,0.25,0.55,1.0,0.45
+aclip	audio/memo-0417.mp3	120
+filler	audio/memo-0417.mp3	0	35	0.9,0.3,0.6,0.15,1.0,0.45,0.75
+sentence	audio/memo-0417.mp3	1.0
+filler	audio/memo-0417.mp3	105	120	0.9,0.3,0.6,0.15,1.0,0.45,0.75
+aclip	audio/standup-notes.flac	90
+sentence	audio/standup-notes.flac	1.0
+filler	audio/standup-notes.flac	55	90	0.6,0.9,0.2,0.5,1.0,0.35,0.8
+aclip	audio/call-recording-b.aac	100
+filler	audio/call-recording-b.aac	0	25	0.5,1.0,0.25,0.7,0.35,0.9,0.15
+sentence	audio/call-recording-b.aac	1.0
+filler	audio/call-recording-b.aac	90	100	0.5,1.0,0.25,0.7,0.35,0.9,0.15
+aclip	audio/lecture-04.m4a	150
+filler	audio/lecture-04.m4a	0	65	0.4,0.8,0.55,1.0,0.2,0.65,0.3
+sentence	audio/lecture-04.m4a	1.0
+filler	audio/lecture-04.m4a	135	150	0.4,0.8,0.55,1.0,0.2,0.65,0.3
+aclip	audio/field-recording.mp3	90
+sentence	audio/field-recording.mp3	1.0
+filler	audio/field-recording.mp3	65	90	0.85,0.25,0.65,0.45,1.0,0.3,0.6
+aclip	audio/voice-note-17.wav	130
+filler	audio/voice-note-17.wav	0	50	0.3,0.7,1.0,0.4,0.55,0.2,0.85
+sentence	audio/voice-note-17.wav	1.0
+filler	audio/voice-note-17.wav	120	130	0.3,0.7,1.0,0.4,0.55,0.2,0.85
+aclip	audio/town-hall.flac	100
+filler	audio/town-hall.flac	0	10	0.65,0.95,0.3,0.5,0.8,0.2,0.45
+sentence	audio/town-hall.flac	1.0
+filler	audio/town-hall.flac	80	100	0.65,0.95,0.3,0.5,0.8,0.2,0.45
+aclip	audio/short-memo.mp3	12
+say	audio/short-memo.mp3	0	1.0	Call the plumber about the kitchen tap
+aclip	audio/quiet-room.wav	40
+#
+# ---- video (frames 320 x 240 at 5 a second, h264; the shots tile the clip: each starts where the one before ends; a clip with no soundtrack has no audio track) ----
+vclip	video/safari-zebra.mp4	60	none
+shot	video/safari-zebra.mp4	0	14	#ffd9a0	#fff0d6	#c9b26a	🦁:0.3,0.64,0.5;🌳:0.8,0.55,0.3
+shot	video/safari-zebra.mp4	14	14	#16254a	#3a4f8a	#2c3a1e	🦏:0.5,0.66,0.5;🌙:0.82,0.15,0.14
+shot	video/safari-zebra.mp4	28	14	#ffcf8a	#ffeccc	#e0b070	🐪:0.7,0.62,0.5;🌞:0.2,0.17,0.2
+shot	video/safari-zebra.mp4	42	10	#8fd3ff	#e6f6ff	#3f8f3f	🦓:0.5,0.62,0.7;🌳:0.14,0.6,0.26;☁️:0.8,0.2,0.14
+shot	video/safari-zebra.mp4	52	8	#0a1a3a	#3a6ab5	#5b6b3b	🐊:0.4,0.72,0.45;🌴:0.85,0.5,0.3
+vclip	video/safari-giraffe.mp4	50	none
+shot	video/safari-giraffe.mp4	0	15	#8fd3ff	#e6f6ff	#7cae3f	🐒:0.3,0.6,0.4;🌴:0.8,0.5,0.4
+shot	video/safari-giraffe.mp4	15	15	#ffd9a0	#fff0d6	#c9b26a	🦒:0.5,0.55,0.7;🌳:0.84,0.7,0.26
+shot	video/safari-giraffe.mp4	30	20	#1a2a4a	#3a5a8a	#2c3a1e	🦏:0.6,0.66,0.5
+vclip	video/clip-v11.mp4	45	speech
+shot	video/clip-v11.mp4	0	45	#808080	#808080	-	-
+sentence	video/clip-v11.mp4	1.0
+vclip	video/clip-v12.mp4	45	silent
+shot	video/clip-v12.mp4	0	45	#808080	#808080	-	-
+vclip	video/ocean-trip.mov	45	none
+shot	video/ocean-trip.mov	0	20	#6ec6ff	#d6f0ff	#2a6fa8	🌊:0.2,0.62,0.22;🌊:0.5,0.64,0.22;🌊:0.8,0.62,0.22
+shot	video/ocean-trip.mov	20	10	#0b3a6b	#4aa3d8	#14507a	🐋:0.5,0.55,0.6;💧:0.2,0.3,0.1
+shot	video/ocean-trip.mov	30	15	#2a1b3d	#5c3a78	#2b1d14	🐙:0.5,0.6,0.55;🐚:0.2,0.8,0.12
+vclip	video/aerial-shoot.mp4	50	none
+shot	video/aerial-shoot.mp4	0	35	#9bd4ff	#e1f3ff	#6a9a4a	🏘️:0.5,0.62,0.55
+shot	video/aerial-shoot.mp4	35	10	#c9d7e6	#eef3f8	#7a7a6a	🚁:0.5,0.4,0.55;☁️:0.2,0.25,0.16;☁️:0.8,0.7,0.14
+shot	video/aerial-shoot.mp4	45	5	#ffe29a	#fff3d1	#8a8a8a	🌾:0.5,0.7,0.4
+vclip	video/weekend-0412.m4v	35	none
+shot	video/weekend-0412.m4v	0	15	#ffcf8a	#ffeccc	#f2d9a0	🌴:0.25,0.55,0.5;🌴:0.75,0.58,0.45
+shot	video/weekend-0412.m4v	15	10	#6ec6ff	#d6f0ff	#1f5f9c	🏄:0.5,0.55,0.55;🌊:0.2,0.75,0.2;🌊:0.8,0.75,0.2
+shot	video/weekend-0412.m4v	25	10	#ff7e47	#ffd27a	#1f5f9c	🌅:0.5,0.4,0.5
+vclip	video/wetland-walk.mov	65	none
+shot	video/wetland-walk.mov	0	50	#c9d7e6	#eef3f8	#7a8a5a	🌾:0.3,0.65,0.4;🌾:0.7,0.65,0.4
+shot	video/wetland-walk.mov	50	10	#ffd1e8	#fff0f7	#6fb0d0	🦩:0.5,0.6,0.6;💧:0.2,0.8,0.1
+shot	video/wetland-walk.mov	60	5	#b8e0f5	#e8f6ff	#3a7a3a	🐸:0.5,0.7,0.4
+vclip	video/fair-day.mp4	45	none
+shot	video/fair-day.mp4	0	25	#ffe6f0	#fff7fb	#8fcf6a	🎪:0.5,0.6,0.55
+shot	video/fair-day.mp4	25	10	#0a1a3a	#3a6ab5	#1a1a1a	🎡:0.5,0.55,0.65;⭐:0.2,0.15,0.07
+shot	video/fair-day.mp4	35	10	#f3e5d0	#fbf3e6	#a65e3a	🎠:0.5,0.6,0.55
+vclip	video/garden-clip.m4v	55	none
+shot	video/garden-clip.m4v	0	40	#b8e0f5	#e8f6ff	#6fae5a	🌼:0.2,0.7,0.3;🌼:0.5,0.74,0.34;🌼:0.8,0.7,0.3
+shot	video/garden-clip.m4v	40	10	#ffd1e8	#fff0f7	#9ccc65	🦋:0.45,0.5,0.5;🌸:0.8,0.7,0.3
+shot	video/garden-clip.m4v	50	5	#ffe29a	#fff3d1	#8a8a8a	🐝:0.5,0.55,0.5
+vclip	video/farm-visit.mp4	40	none
+shot	video/farm-visit.mp4	0	10	#9ed8ff	#e7f6ff	#b9c968	🐓:0.5,0.64,0.5
+shot	video/farm-visit.mp4	10	10	#ffcf8a	#ffeccc	#6b4a2a	🚜:0.5,0.66,0.6;☀️:0.82,0.15,0.16
+shot	video/farm-visit.mp4	20	20	#8fd3ff	#e6f6ff	#7cae3f	🌽:0.3,0.7,0.35;🌽:0.7,0.7,0.35
+vclip	video/snow-day.mov	30	none
+shot	video/snow-day.mov	0	15	#8fb8e8	#dbe9f7	#ffffff	⛄:0.5,0.6,0.55;❄️:0.2,0.2,0.1;❄️:0.8,0.3,0.1
+shot	video/snow-day.mov	15	15	#3b2a20	#6b4a36	#d9d9d9	🦊:0.5,0.62,0.5
+#
+# The two damaged clips (damaged/broken.m4a: 6000 random bytes; damaged/broken.mp4: safari-giraffe.mp4 cut in half) are made by the builder itself.

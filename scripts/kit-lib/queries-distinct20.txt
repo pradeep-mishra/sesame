@@ -1,0 +1,23 @@
+# Search set distinct20 of kit-probe.sh (S2.10, S2.12, S2.14): 20 distinct queries typed one after another.
+# 8 descriptions (photos, a PDF, audio, video), 7 exact strings, 5 more descriptions. Hand-written from
+# fixtures/answers.csv and the verify.md fixture key; never produced by the product.
+a dog on the beach
+the clause about pets in the lease
+where they talk about sleep
+zebra in a video
+a snow covered mountain
+a birthday cake with candles
+a city skyline at night
+a sailboat at sunset
+ERR_CONNECTION_RESET
+INV-2026-04417
+Q3-board-deck.pdf
+zq-lantern-4471
+PNR-XJ29KD
+DSC_20260311_0042.jpg
+tax-return-2025-draft.pdf
+a red sports car
+a field of sunflowers
+tacos on a street food stand
+an elephant in the grassland
+a steam train

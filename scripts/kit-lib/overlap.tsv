@@ -1,0 +1,15 @@
+# The overlap fixture of S1.6 (plan 2, fix round C, C1-7): fixtures/overlap, a parent folder that holds a photos/ subfolder and two
+# loose photos, so that picking the parent AND photos/ makes one folder lie inside the other and every file under photos/ is
+# reachable through both picks. The picks are not "a folder whose only entry is a subfolder" (the picker turns that into the
+# subfolder), because the parent also holds the two loose photos. Written by hand.
+# Columns: source (a photo of the golden fixture, path under golden/, one of the rows of golden-photos.tsv), place (path under
+# overlap/). `kit-fixtures.sh build overlap` copies each source to its place with its time kept and removes anything else under
+# overlap/. The photo count of overlap in expected-counts.tsv is the number of rows below (eight).
+photos/beach-dog.jpg	photos/beach-dog.jpg
+photos/snowy-mountain.png	photos/snowy-mountain.png
+photos/birthday-cake.heic	photos/birthday-cake.heic
+photos/night-skyline.webp	photos/night-skyline.webp
+photos/red-sports-car.tiff	photos/red-sports-car.tiff
+photos/sunflower-field.gif	photos/sunflower-field.gif
+photos/sailboat-sunset.jpg	top-sailboat-sunset.jpg
+photos/taco-cart.png	top-taco-cart.png

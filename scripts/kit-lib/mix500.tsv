@@ -1,0 +1,41 @@
+# The 500-file mix (spec, Fixtures: 220 photos, 120 documents, 100 PDFs, 40 audio files of about 1 minute and 20 video files of about 30
+# seconds, no code), written by hand. Read by `kit-fixtures.sh build mix500` (fixtures/mix500). Tab separated, one fact a line:
+#   scene     <sky top> <sky bottom> <ground> <objects>     one of the pictures the 20 videos are made of (objects as in golden-photos.tsv)
+#   sentence  <text>                                         one spoken line of the 40 audio files (no comma; four of them, 15 s apart, make a file)
+#   words     <words, space separated>                       the vocabulary of the documents and the PDF pages (about 1,000 characters each)
+# Nothing here is a golden fixture: no query of the key asks for any of it.
+scene	#8fd3ff	#e6f6ff	#7cae3f	🌳:0.3,0.6,0.4;🏡:0.7,0.65,0.35
+scene	#ffd9a0	#fff0d6	#c9b26a	🐫:0.5,0.62,0.5;🌵:0.15,0.7,0.25
+scene	#0b1030	#2b3a7a	#111111	🌙:0.8,0.2,0.2;🏙️:0.4,0.6,0.5
+scene	#ffe29a	#fff3d1	#8a8a8a	🚲:0.5,0.7,0.45
+scene	#b8e0f5	#e8f6ff	#ffffff	⛄:0.4,0.62,0.5;🌲:0.8,0.6,0.3
+scene	#ff7e47	#ffd27a	#1f5f9c	⛵:0.5,0.6,0.4;🌅:0.5,0.28,0.3
+scene	#9ed8ff	#e7f6ff	#b9c968	🐄:0.35,0.66,0.4;🌾:0.75,0.7,0.3
+scene	#3b2a20	#6b4a36	#8c2f1b	🍕:0.5,0.62,0.5
+scene	#ffd1e8	#fff0f7	#9ccc65	🌷:0.3,0.7,0.3;🌷:0.6,0.74,0.3;🌷:0.85,0.7,0.25
+scene	#c9d7e6	#eef3f8	#7a7a6a	🚂:0.5,0.64,0.5;☁️:0.25,0.2,0.16
+sentence	The train to the coast leaves at nine every morning from platform four
+sentence	Please bring two chairs from the garage and set them by the back door
+sentence	The museum opens a new room about old maps and ships next month
+sentence	We need to order more paper and pens before the office closes on Friday
+sentence	The baker says the bread is best in the first hour after it comes out
+sentence	A small boat crossed the lake while the fog slowly lifted from the hills
+sentence	Remember that the library books are due on the third of the month
+sentence	The teacher asked the class to draw a map of their street from memory
+sentence	Our neighbour is building a wooden fence around the vegetable garden
+sentence	The concert starts at eight and the doors open one hour before that
+sentence	It rained all night and the river is higher than it was last spring
+sentence	The pharmacy on the corner has new hours and closes early on Sundays
+sentence	We tried the new bakery near the station and bought a seeded loaf
+sentence	The bus driver told everyone that the next stop is the old market
+sentence	She keeps her paints in a blue box under the window of the studio
+sentence	The warehouse will ship the order on Monday and send a tracking number
+sentence	He practised the piano for an hour and then went out to walk the dog
+sentence	The committee will meet in the green room to talk about the summer fair
+sentence	A package arrived this morning and the courier left it with the janitor
+sentence	The ferry between the two islands runs twice a day in the winter months
+sentence	We painted the kitchen yellow and hung a clock above the wooden table
+sentence	The hikers reached the top before noon and ate lunch beside a stream
+sentence	An old radio on the shelf still plays the evening news in the kitchen
+sentence	The market sells apples and pears and honey from the farms in the valley
+words	table window garden river planning budget meeting letter market season paper kitchen village morning evening station harbour library teacher student office project record summary report weather bridge engine lantern basket orchard meadow letterbox ticket platform schedule invoice contract receipt delivery storage workshop journey landscape visitor neighbour festival concert gallery museum recipe harvest cabinet corridor staircase notebook calendar envelope

@@ -1,0 +1,39 @@
+# The golden repos of S5 (plan 6, t1), written by hand from the files of scripts/kit-lib/repo-src and the build in kit-fixtures.sh.
+# Columns: type, repo, file (relative to the repo), name, line or kind. Tab separated; a line that starts with # is a comment.
+#   def       a function and the line its `func` is on (every function is defined once; the lines are counted by hand)
+#   call      a file that calls refreshAccessToken (the name column); the line is the line of the call
+#   decoy     a non-code file that is a strong match for the words of the first code description (S5.14)
+#   picture   a picture and the words that describe it (S5.9 ii: a picked repo that is not ticked still reads its picture)
+#   excluded  a file of api-client that the rules never read (S5.8): the unique string inside it, and the kind of exclusion
+def	api-client	retry.swift	retryWithBackoff	4
+def	api-client	auth.swift	refreshAccessToken	9
+def	api-client	pagination.swift	fetchAllPages	4
+def	api-client	cache.swift	cachedResponse	6
+def	api-client	ratelimit.swift	waitForRateLimit	4
+def	api-client	url.swift	buildQueryString	4
+def	api-client	upload.swift	uploadInChunks	4
+def	api-client	errors.swift	describeHttpError	9
+def	api-client	signing.swift	signRequest	4
+def	api-client	json.swift	decodeResponseBody	4
+def	legacy-sync	merge.swift	mergeStaleRecords	4
+def	scratch-lab	dates.swift	parseLooseDates	4
+call	api-client	client.swift	refreshAccessToken	7
+call	api-client	session.swift	refreshAccessToken	7
+call	api-client	upload.swift	refreshAccessToken	12
+decoy	api-client	docs/retry-notes.md	-	-
+decoy	api-client	docs/retry-diagram.png	-	-
+picture	legacy-sync	docs/diagram.png	legacy sync diagram old store to new store	-
+excluded	api-client	scratch-output.swift	exclzx7101	ignored
+excluded	api-client	node_modules/leftpad/index.js	exclzx7102	node_modules
+excluded	api-client	Pods/Alamofire/Source.swift	exclzx7103	Pods
+excluded	api-client	build/output.js	exclzx7104	build
+excluded	api-client	dist/bundle.js	exclzx7105	dist
+excluded	api-client	.build/debug/module.swift	exclzx7106	.build
+excluded	api-client	vendor/github/lib.go	exclzx7107	vendor
+excluded	api-client	certs/server.pem	exclzx7111	pem
+excluded	api-client	certs/signing.key	exclzx7112	key
+excluded	api-client	certs/bundle.p12	exclzx7113	p12
+excluded	api-client	certs/client.pfx	exclzx7114	pfx
+excluded	api-client	id_rsa.txt	exclzx7115	id_rsa
+excluded	api-client	.env.local.md	exclzx7116	env
+excluded	api-client	vault.kdbx	exclzx7117	kdbx

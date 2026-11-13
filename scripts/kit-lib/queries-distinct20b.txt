@@ -1,0 +1,24 @@
+# Search set distinct20b of kit-probe.sh (S2.10's quiet total, S2.11's busy run): 20 queries that share none
+# with distinct20, so no vector cache can help (verify.md, feature map S2.11). The same shape: 8 descriptions,
+# 7 exact strings, 5 more descriptions.
+# Hand-written from fixtures/answers.csv; never produced by the product.
+a race car on a grey road
+a locomotive under clouds
+three sunflowers on green grass
+an elephant on grass with a tree
+tacos with chili and avocado
+a cake with lit candles and balloons
+tall buildings under a night sky
+a dog walking on sand
+BX-204-RETURN
+trk-9921-WQ
+HR-POLICY-2025-REV3
+WARRANTY-MS-4410
+db-replica-lag-17s
+PO-7781-ZETA
+sleep-interview.m4a
+waves and a sun on sand
+pine trees on a snowy mountain
+a grey road with a race car
+balloons and a cake
+a moon over buildings

@@ -1,0 +1,68 @@
+# SwiftPM, Xcode and editor state
+.build/
+dist/
+.swiftpm/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcuserstate
+*.dSYM
+.idea/
+.vscode/
+*.swp
+
+# llama.cpp: fetched by scripts/build-llama.sh, never uploaded
+third_party/llama.cpp/
+third_party/**/build/
+
+# Models and build artefacts
+*.gguf
+*.safetensors
+models/
+*.profraw
+*.o
+*.a
+*.dylib
+
+# Logs, databases and local state the app and the kit scripts write
+# the kit scripts write to $TMPDIR/sesame-kit, outside the repo; in the repo they write only .build, dist and .ril
+*.log
+logs/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Secrets and signing material
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.cer
+id_rsa*
+*.kdbx
+credentials*.json
+*.token
+
+# Owner tooling that is not source
+.ril/
+.claude/
+.mcp.json
+.playwright-mcp/
+scratch/
+tmp/
+*.local
+
+# OS and temp files
+.DS_Store
+Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+*.tmp
+*.bak
+*~
+.cache_ggshield

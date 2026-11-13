@@ -1,0 +1,73 @@
+# The golden PDFs and documents (spec, Fixtures: PDFs: 20, including one 60-page PDF built from page pictures, one scanned
+# PDF, one password-protected and one damaged; documents: one each of txt, md, rtf, docx, html and odt; and the three
+# boundary PDFs of S3.10). Written by hand; kit-fixtures.sh `build golden-docs` builds the files under pdfs/ and docs/,
+# `build boundary` the files under boundary/ (fixtures/golden-docs/ and fixtures/boundary/, never inside golden/).
+# Tab separated, one kind of line each (the first field):
+#   pdf      <path> <kind> <pages> <title> <password or ->   kind text (a text layer), picture (page pictures, no text
+#                        layer), locked (a text layer, user password) or damaged (a text PDF cut after 200 bytes)
+#   page     <path> <page> <text>          one line of text on that page (text kinds); {EXACT} is the query of the first
+#                        exact row of fixtures/answers.csv whose file is this path
+#   passage  <row id> <text>               the passage of a pdf row of the key: drawn on the row's page inside the row's
+#                        box=x:y:w:h; it must hold the row's anchor= phrase (kit-fixtures.sh stops when it does not)
+#   doc      <path> <text>                 a document of about 1,000 characters (the extension of the path decides the
+#                        format); {ANCHOR} is the anchor= phrase of the doc row of the key for this file, {EXACT} the query
+#                        of the first exact row whose file it is; \n is a line break
+# Every pdfs/ path of the key (any group) has a pdf line; the locked and the damaged pdf are the two that the key does not
+# name (S3.8). The key rows of the groups scanned, long60 and boundary have no line here: their text comes from the key.
+pdf	pdfs/invoice-2026-04417.pdf	text	2	Invoice from Maple Street Hardware	-
+page	pdfs/invoice-2026-04417.pdf	1	Invoice reference {EXACT} for the March delivery of garden tools and paint.
+pdf	pdfs/invoice-2026-04418.pdf	text	2	Invoice from Maple Street Hardware	-
+page	pdfs/invoice-2026-04418.pdf	1	Invoice reference INV-2026-04418 for the April delivery of fence posts and screws.
+pdf	pdfs/Q3-board-deck.pdf	text	3	Board deck third quarter	-
+page	pdfs/Q3-board-deck.pdf	1	Revenue summary for the third quarter and the plan for the next one.
+pdf	pdfs/Q2-board-deck.pdf	text	3	Board deck second quarter	-
+page	pdfs/Q2-board-deck.pdf	1	Revenue summary for the second quarter and the plan for the next one.
+pdf	pdfs/employee-handbook.pdf	text	8	Employee handbook	-
+page	pdfs/employee-handbook.pdf	3	Policy reference {EXACT} replaces all earlier versions of the leave rules.
+passage	pdf-02	Section 5.2. Remote work. Subject to agreement with the line manager, employees may work from home on up to two days each week. Core hours between ten and three must be kept, and a reliable internet connection is the responsibility of the employee.
+pdf	pdfs/boarding-pass.pdf	text	1	Boarding pass	-
+page	pdfs/boarding-pass.pdf	1	Booking reference {EXACT} for passenger Jordan Lee on the morning flight.
+passage	pdf-10	Flight information. Passengers please note that boarding closes at gate twelve forty minutes before departure. Seat 14C, hand luggage only.
+pdf	pdfs/hotel-booking.pdf	text	2	Hotel booking confirmation	-
+page	pdfs/hotel-booking.pdf	1	Confirmation of three nights in a double room with breakfast included.
+pdf	pdfs/tax-return-2025-draft.pdf	text	6	Income tax return draft	-
+page	pdfs/tax-return-2025-draft.pdf	1	Draft of the yearly income statement, not yet sent to the tax office.
+passage	pdf-04	Part D. Deductions. In the draft return the donations to charity total three hundred and ten dollars, supported by receipts from two registered organisations. Home office costs are listed separately on the next page.
+pdf	pdfs/tax-return-2024.pdf	text	6	Income tax return	-
+page	pdfs/tax-return-2024.pdf	1	Final yearly income statement as sent to the tax office last year.
+pdf	pdfs/warranty-maple-street.pdf	text	4	Warranty certificate	-
+page	pdfs/warranty-maple-street.pdf	2	Warranty number {EXACT} is valid from the date of purchase.
+passage	pdf-03	Coverage. Under this warranty the washing machine is covered for five years against faults in materials and workmanship. Normal wear, misuse and damage from power surges are excluded. Claims must be made through the Maple Street service desk.
+pdf	pdfs/lease-2024.pdf	text	12	Residential lease agreement	-
+page	pdfs/lease-2024.pdf	1	Agreement between the landlord and the tenant for the flat on the second floor.
+passage	pdf-01	Clause 14. Pets. The tenant may keep one cat or one small dog, but pets are allowed only with the written consent of the landlord. A pet deposit of two hundred dollars is due before the animal moves in, and any damage caused by a pet must be repaired by the tenant.
+pdf	pdfs/insurance-policy.pdf	text	9	Home insurance policy	-
+page	pdfs/insurance-policy.pdf	1	Policy schedule for the house and its contents for the current year.
+passage	pdf-05	Section 4. Water damage. Under this policy burst pipes are covered up to twenty thousand dollars per event, but gradual leaks and poor maintenance are not. The policy holder must report any loss within seven days.
+pdf	pdfs/car-service-report.pdf	text	5	Car service report	-
+page	pdfs/car-service-report.pdf	1	Annual service of the family car carried out at the local garage.
+passage	pdf-06	Findings. During the annual service the front brake pads were replaced and measure ten millimetres, while the rear pads still have about half of their thickness left. The brake fluid was topped up and the handbrake was adjusted.
+pdf	pdfs/recipe-collection.pdf	text	10	Family recipe collection	-
+page	pdfs/recipe-collection.pdf	1	Favourite dishes of the family, collected over many years.
+passage	pdf-07	Lemon cake. Mix the butter, sugar, eggs and the zest of two lemons, fold in the flour, then bake the lemon cake for forty five minutes at one hundred and eighty degrees. Let it cool before adding the lemon glaze.
+pdf	pdfs/conference-schedule.pdf	text	4	Conference schedule	-
+page	pdfs/conference-schedule.pdf	1	Programme of the three day developer conference in the city centre.
+passage	pdf-08	Friday. Main hall. The keynote speaker opens the conference on Friday at nine in the morning, followed by a panel on open source maintenance and a coffee break at half past ten.
+pdf	pdfs/dishwasher-manual.pdf	text	14	Dishwasher user manual	-
+page	pdfs/dishwasher-manual.pdf	1	Installation, use and care of the built in dishwasher.
+passage	pdf-09	Cleaning the filter. To keep the dishwasher working well, remove the filter and rinse it under warm water every month. Do not use hard brushes or sharp tools, and place the filter back until it clicks into position.
+pdf	pdfs/annual-report-60p.pdf	picture	60	Annual report	-
+pdf	pdfs/scanned-receipt.pdf	picture	3	Workshop receipts	-
+pdf	pdfs/locked-contract.pdf	locked	2	Confidential contract	kit-locked-7
+page	pdfs/locked-contract.pdf	1	This contract is confidential and protected by a password.
+pdf	pdfs/damaged-report.pdf	damaged	3	Damaged report	-
+page	pdfs/damaged-report.pdf	1	This report was cut short and cannot be opened.
+pdf	boundary/one-page.pdf	text	1	Boundary note with one page	-
+pdf	boundary/thirty-pages.pdf	text	30	Boundary note with thirty pages	-
+pdf	boundary/thirty-one-pages.pdf	text	31	Boundary note with thirty one pages	-
+doc	docs/field-notes.txt	Field notes from the island trip. We arrived late on Tuesday and the harbour was already quiet. Marta checked the weather report twice before we unpacked anything. The reference code for the borrowed lamp is {EXACT} and it has to go back to the cabin owner. Please note that {ANCHOR}, so everyone should be at the dock by half past five. The bakery near the dock opens earlier than expected and sells warm bread. We counted four seabird nests on the cliff path and wrote down their positions in the small blue notebook. The water in the east cove was calm enough for a short swim. Next week we plan to map the footpaths between the two villages and note which signs are missing. Remember to charge the camera batteries before the long walk on Saturday. On the last evening we want to cook together in the cabin kitchen and share the leftover soup with the neighbours. The notebook stays in the green rucksack so that nobody forgets it again.
+doc	docs/field-notes.md	# Garage and camping notes\n\nA short list of where things live in the house after the move. The return label for the broken stove is {EXACT} and the box is waiting by the door. Please remember that {ANCHOR}, together with the green groundsheet and the spare pegs. The big cooler sits on the top shelf next to the folding table. Winter coats are in the hall cupboard and the summer clothes are still in the blue boxes. The ladder hangs on the left wall of the garage and the paint cans are behind it. Nobody has found the second key to the shed yet, so check the kitchen drawer first. When the weather improves we will sort the bikes and give the old ones to the school fair. The list should be updated whenever something moves. Anyone who borrows a tool is asked to put a note on the whiteboard in the hallway and to bring the tool back clean. A copy of this list is also pinned inside the door of the garage cupboard.
+doc	docs/shipping-update.html	Shipping update for your recent order. Your tracking code is {EXACT} and you can use it on the carrier website at any time. The driver tried to deliver the package on Thursday afternoon but nobody answered the door. In the end {ANCHOR}, and a card was put through the letterbox with the details. If the item is wrong or damaged you can start a return within thirty days and a prepaid label will be sent by email. Orders placed before noon normally leave the warehouse on the same day. Large items travel on a separate truck and may arrive a day later. Please keep the packaging until you have checked everything inside. Thank you for shopping with us and for your patience during the busy season. Our support team is available on weekdays from nine to five. Please do not reply to this message, because the mailbox is not monitored, and use the contact form on the website instead. Delivery times may change during public holidays.
+doc	docs/meeting-minutes-2026-02-19.docx	Minutes of the staff meeting held on the nineteenth of February. Present were the head of operations and five members of the team. The chair opened the meeting and the minutes of the previous session were approved without changes. The committee discussed the state of the shared office. After a short discussion {ANCHOR}. A new schedule for the cleaning rota was proposed by Jonas and accepted. The budget for plants and small furniture was not changed this quarter. Two members reported that the printer on the second floor still jams and a technician will be called. Questions about holiday cover were postponed to the next session. The meeting closed at ten past four and the next one is planned for the middle of March. The secretary will send the final version of these minutes to everyone on the distribution list within one week. Action items were assigned to named members and will be reviewed at the start of the next session, together with any open questions from the previous quarter.
+doc	docs/budget-2026.odt	Budget plan for 2026. This note summarises the planned spending of the small design team for the coming year. Salaries remain the largest item and follow the agreed pay scale. Software licences are expected to rise slightly because of the new seats. After the review in January {ANCHOR}, and the extra money is meant for two courses and one conference. Travel is limited to one trip per person unless the manager approves more. Equipment replacement is planned for the autumn and covers four laptops. A reserve of five percent is kept for unexpected costs and is released only by the finance lead. The figures will be reviewed again at the end of June. Any change above five percent of a single line needs the written approval of the department head before it is booked. The final version of the plan is stored in the shared finance folder together with the supporting quotes and the list of open orders.
+doc	docs/todo-list.rtf	Weekend to do list for the whole family. The week was busy and a lot of small things were left undone, so this list is meant to catch up before Monday. First of all {ANCHOR}, preferably something small that fits in a bag. Then call the plumber about the dripping tap in the bathroom. Pick up the dry cleaning on the way home and return the library books that are overdue. Water the plants on the balcony and check that the herbs have enough light. Write down the shopping list for Saturday: rice, tomatoes, milk and fresh bread. Book a table for dinner with the neighbours and ask whether they eat fish. Send the photos from the hike to the group chat. Clean out the fridge before the weekend and take the glass to the recycling bin. If there is time left read the first chapters of the new novel. On Sunday morning go for a long walk by the river, then prepare the lunch for the whole family and set the table in the garden if the weather stays dry. Do not forget to charge the phone and the camera before leaving the house.

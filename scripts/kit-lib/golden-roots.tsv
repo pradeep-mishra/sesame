@@ -1,0 +1,14 @@
+# The folders the recipe `golden` picks (scripts/kit-lib/recipes.sh, golden_pick_list). Written by hand from what the builders make
+# under $KIT_ROOT/fixtures (kit-fixtures.sh build golden | golden-docs | boundary; plan-4-t2 report):
+#   golden       the 40 golden photos, in one subfolder, photos/
+#   golden-docs  the 20 PDFs in pdfs/ and the six documents in docs/ (two subfolders)
+#   boundary     the three boundary PDFs, directly in the folder (no subfolder)
+#   golden-av    the 12 audio clips in audio/, the 12 video clips in video/ and the two damaged clips in damaged/ (kit-fixtures.sh build
+#                golden-av, plan 5): three subfolders, so the picker adds the folder itself and it is picked once
+# Tab separated: the folder, then its subfolders, comma separated, blank for none. A folder with exactly one subfolder is picked twice
+# (the folder, then folder/subfolder: the picker adds the lone subfolder, as the recipe `photos` picks `golden golden/photos`); any
+# other folder is picked once, as itself.
+golden	photos
+golden-docs	pdfs,docs
+boundary
+golden-av	audio,video,damaged

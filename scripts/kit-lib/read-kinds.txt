@@ -1,0 +1,5 @@
+photo
+document
+pdf
+audio
+video

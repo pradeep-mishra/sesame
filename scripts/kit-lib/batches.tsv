@@ -1,0 +1,55 @@
+# The batches of the Accept stage (plan 6, t9), written by hand. Tab separated: <kind> <batch letter> <fields>.
+batch	H0	the person steps	0	no
+say	H0	grant Accessibility, Screen Recording and Automation for System Events to the terminal that runs the kit (scripts/kit-perms.sh check says which is missing)
+say	H0	give the administrator session once (scripts/kit-perms.sh ask-admin); the file and network traces of S8.2, S8.3 and S8.7 need it
+say	H0	have the model files whole in the kit cache (scripts/kit-mirror.sh seed --real is the one download)
+say	H0	run every real-app batch below as printed: caffeinate -dimsu, KIT_TYPE_DELAY_MS=80 and KIT_PICK_WAIT=30
+batch	A	the Doctor	2	yes
+run	A	kit-doctor.sh --version @VERSION@
+batch	C	the full tree, the golden repos and S8	many	yes
+run	C	kit-reset.sh --id S8 --version @VERSION@ --model mirror --baseline
+run	C	kit-run.sh prep tree --trace s8
+run	C	kit-run.sh S2 --ids S2.17
+run	C	kit-run.sh S8
+batch	D	the 50,000-row index and S2	many	yes
+run	D	kit-reset.sh --id S2 --version @VERSION@ --model cache
+run	D	kit-run.sh S2 --ids S2.1,S2.2,S2.3,S2.4,S2.5,S2.8
+run	D	kit-run.sh prep index50k
+run	D	kit-run.sh S2 --ids S2.9,S2.10,S2.11,S2.12,S2.13,S2.14
+run	D	kit-run.sh S2 --ids S2.15
+batch	E	S6 with S6.11 on the 500-file mix	many	yes
+run	E	kit-reset.sh --id S6 --version @VERSION@ --model cache
+run	E	kit-run.sh S6
+batch	F	the one verify.sh	many	yes
+run	F	verify.sh
+batch	G	the self-runs	many	yes
+say	G	self-runs 2 and 3 of verify.md (Self-run), run by the verifier with scripts/kit-selfrun.sh: copy-project, break, build, the S8 checks red, restore, the same checks green, clean
+batch	H1	plan 5 leftovers: the ids that failed	many	yes
+run	H1	kit-run.sh S1 --ids S1.6,S1.7,S1.10,S1.11,S1.13,S1.15,S1.20,S1.21,S1.22,S1.26,S1.29
+run	H1	kit-run.sh S2 --ids S2.1,S2.2,S2.4,S2.5,S2.8,S2.10,S2.11,S2.12,S2.13,S2.14
+run	H1	kit-run.sh S6 --ids S6.1,S6.10,S6.12
+run	H1	kit-run.sh S7 --ids S7.1,S7.2,S7.3,S7.5,S7.7,S7.9,S7.11,S7.12,S7.13
+run	H1	kit-run.sh S8 --ids S8.5,S8.6,S8.9,S8.11,S8.13
+batch	H2	plan 5 leftovers: the 33 grant ids	many	yes
+run	H2	kit-run.sh S1 --ids S1.6
+run	H2	kit-run.sh S2 --ids S2.9,S2.17
+run	H2	kit-run.sh S3 --ids S3.1,S3.2,S3.3,S3.4,S3.5,S3.6,S3.7,S3.8,S3.9,S3.10
+run	H2	kit-run.sh S4 --ids S4.1,S4.2,S4.3,S4.4,S4.5,S4.6,S4.7,S4.8,S4.9,S4.10
+run	H2	kit-run.sh S6 --ids S6.8,S6.13
+run	H2	kit-run.sh S7 --ids S7.4,S7.18
+run	H2	kit-run.sh S8 --ids S8.1,S8.2,S8.3,S8.7,S8.8,S8.10
+batch	H3	plan 5 leftovers: the review and the verifiers	0	no
+say	H3	the plan 5 review and the verifiers' records are read by the controller; they run no id
+batch	S9	S9: old data first, then a clean state	many	yes
+say	S9	with the old kit (a throwaway worktree of the tag job2-base, used only for its scripts/ and fixtures/, the kept bundle ~/sesame-job2-old-build/Sesame.app placed at its dist/Sesame.app) and KIT_ROOT set to the one shared folder, run kit-reset.sh --id S9 --version @VERSION@ --model mirror and kit-run.sh prep golden-code (the old index and settings, kept)
+run	S9	kit-run.sh prep upgrade
+run	S9	kit-run.sh S9 --ids S9.6
+run	S9	kit-reset.sh --id S9 --version @VERSION@ --model mirror
+run	S9	kit-run.sh prep golden
+run	S9	kit-run.sh S9 --ids S9.1,S9.2,S9.3,S9.4,S9.5
+batch	S10	S10: the redesigned screens	many	yes
+run	S10	kit-reset.sh --id S10 --version @VERSION@ --model mirror
+run	S10	kit-run.sh prep golden
+run	S10	kit-run.sh S10 --ids S10.1,S10.2,S10.3,S10.5,S10.7,S10.9
+say	S10	before the next run line switch the mirror's fail mode on (scripts/kit-mirror.sh offline), announced to the person, so a model download can fail; switch it off again (scripts/kit-mirror.sh online) after the run line
+run	S10	kit-run.sh S10 --ids S10.8

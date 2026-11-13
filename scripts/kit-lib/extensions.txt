@@ -1,0 +1,8 @@
+# The spec's six extension lists (Goals, "Files Sesame reads, by extension"), written out by hand.
+# One line per kind: the kind, a colon, the extensions in lower case. Anything else is not read.
+photo: jpeg jpg png heic webp tiff tif gif
+document: txt md rtf docx html odt
+audio: mp3 m4a wav aac flac
+video: mp4 mov m4v
+pdf: pdf
+code: swift py js ts tsx jsx go rs java kt c h cpp rb sh

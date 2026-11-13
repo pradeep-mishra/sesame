@@ -1,0 +1,132 @@
+# The S8 fixture tree (spec, Fixtures: "Fixture tree"), written by hand. kit-fixtures.sh build tree makes exactly these
+# files under $KIT_ROOT/fixtures/tree/ (plus the .git folder of repo/, made by git init); expect listing tree checks the
+# folder against this table. Every excluded case of the spec is present at least once. Columns, separated by one tab:
+# path (under tree/), kind, argument. Names hold no space. The key and password files hold only made-up text, never a real key.
+# Kinds: jpeg N and png N (copy of generated picture N: jpeg 1-4, png 1-2), text <line>, lines <line>|<line>|... (one
+#   line each), rtf <line>, html <line>, docx <line>,
+#   odt <line>, pdf <line> (one page; no parenthesis or backslash in the line), wav (1 s tone), mp4 (1 s clip),
+#   sparse <bytes> (a size and no blocks on disk: the cloud-only stand-in), noise <bytes>:<seed> (random-looking bytes),
+#   trunc <png1|png2|pdf|mp4>:<bytes> (the first bytes of that generated file: a damaged file), badbytes (bytes that are not text).
+# Top-level folders, each one picked as one folder by the recipes except never-picked:
+#   plain        ordinary files of every kind, none of them excluded
+#   excluded     key and password names, hidden folders, Caches, an app bundle, a cloud-only stand-in
+#   unsupported  .pptx .xlsx .pages .dng and a file with no extension, next to two readable files
+#   damaged      one damaged file of each kind, next to one good file of each kind
+#   repo         a git repo (.gitignore, node_modules, Pods, build, dist, .build, vendor, git-ignored files)
+#   never-picked a folder nobody picks
+plain/photos/p01.jpg	jpeg	1
+plain/photos/p02.jpg	jpeg	2
+plain/photos/p03.jpg	jpeg	3
+plain/photos/p04.jpg	jpeg	4
+plain/photos/p05.png	png	1
+plain/photos/p06.png	png	2
+plain/docs/notes.txt	text	Plain notes: the quarterly planning meeting moved to Thursday.
+plain/docs/readme.md	text	# Readme for the plain folder
+plain/docs/memo.rtf	rtf	Memo about the office move to the new building.
+plain/docs/report.docx	docx	Report on the annual garden survey.
+plain/docs/page.html	html	A web page about bread baking.
+plain/docs/letter.odt	odt	Letter to the neighbours about the street party.
+plain/pdfs/contract.pdf	pdf	Contract for the rental of a bicycle
+plain/audio/hum.wav	wav
+plain/video/clip.mp4	mp4
+plain/code/tool.py	text	def tool(): return 1
+plain/code/helper.swift	text	func helper() -> Int { 1 }
+plain/code/main.go	text	package main
+excluded/keys/server.pem	text	made-up certificate text for the fixture 0001
+excluded/keys/server.key	text	made-up key text for the fixture 0002
+excluded/keys/bundle.p12	noise	64:11
+excluded/keys/bundle.pfx	noise	64:12
+excluded/keys/vault.kdbx	noise	64:13
+excluded/keys/id_rsa	text	made-up key text for the fixture 0003
+excluded/keys/id_rsa.txt	text	made-up key text for the fixture 0004
+excluded/keys/id_rsa.png	png	1
+excluded/keys/.env	text	MADE_UP_SETTING=fixture0005
+excluded/keys/.env.txt	text	MADE_UP_SETTING=fixture0006
+excluded/keys/.env.local.md	text	MADE_UP_SETTING=fixture0007
+excluded/keys-extra/id_dsa.md	text	made-up key text for the fixture 0008
+excluded/keys-extra/id_ecdsa.txt	text	made-up key text for the fixture 0009
+excluded/keys-extra/id_ed25519.png	png	2
+excluded/.ssh/config	text	Host fixture
+excluded/.ssh/notes.txt	text	Notes kept in a hidden folder.
+excluded/.ssh/photo.png	png	1
+excluded/.config/settings.md	text	# Settings kept in a hidden folder
+excluded/Caches/cached.png	png	1
+excluded/Caches/cached.txt	text	A cache file.
+excluded/Sample.app/Contents/Info.plist	text	made-up property list for the fixture app bundle
+excluded/Sample.app/Contents/Resources/icon.png	png	2
+excluded/Sample.app/Contents/Resources/readme.txt	text	A text file inside an app bundle.
+excluded/cloud/vacation.jpg	sparse	67108864
+unsupported/deck.pptx	noise	2048:21
+unsupported/sheet.xlsx	noise	2048:22
+unsupported/book.pages	noise	2048:23
+unsupported/raw.dng	noise	2048:24
+unsupported/README	text	A file with no extension.
+unsupported/ok.png	png	2
+unsupported/ok.txt	text	A readable text file next to the unsupported ones.
+damaged/broken.png	trunc	png1:300
+damaged/broken.pdf	trunc	pdf:200
+damaged/broken.docx	text	This is plain text, not a zip file.
+damaged/broken.wav	noise	4096:31
+damaged/broken.mp4	trunc	mp4:400
+damaged/broken.swift	badbytes
+damaged/good.png	png	2
+damaged/good.txt	text	A good text file next to the damaged ones.
+damaged/good.pdf	pdf	A good pdf next to the damaged ones
+damaged/good.wav	wav
+damaged/good.mp4	mp4
+damaged/good.swift	text	func good() -> Int { 2 }
+repo/.gitignore	lines	ignored-stuff/|local-notes.txt|local-pic.png
+repo/README.md	text	# A repo with ignored and vendored folders
+repo/src/app.swift	text	func app() -> Int { 3 }
+repo/src/util.py	text	def util(): return 4
+repo/src/logo.png	png	1
+repo/docs/manual.pdf	pdf	Manual of the repo
+repo/docs/notes.txt	text	Notes in the repo docs folder.
+repo/media/hum.wav	wav
+repo/media/clip.mp4	mp4
+repo/local-notes.txt	text	Notes that git ignores.
+repo/local-pic.png	png	2
+repo/node_modules/pkg/pic.png	png	1
+repo/node_modules/pkg/note.txt	text	A file in node_modules.
+repo/node_modules/pkg/doc.pdf	pdf	A pdf in node_modules
+repo/node_modules/pkg/code.py	text	def vendored(): return 5
+repo/node_modules/pkg/sound.wav	wav
+repo/node_modules/pkg/video.mp4	mp4
+repo/Pods/lib/pic.png	png	1
+repo/Pods/lib/note.txt	text	A file in Pods.
+repo/Pods/lib/doc.pdf	pdf	A pdf in Pods
+repo/Pods/lib/code.py	text	def vendored(): return 6
+repo/Pods/lib/sound.wav	wav
+repo/Pods/lib/video.mp4	mp4
+repo/build/pic.png	png	1
+repo/build/note.txt	text	A file in build.
+repo/build/doc.pdf	pdf	A pdf in build
+repo/build/code.py	text	def built(): return 7
+repo/build/sound.wav	wav
+repo/build/video.mp4	mp4
+repo/dist/pic.png	png	1
+repo/dist/note.txt	text	A file in dist.
+repo/dist/doc.pdf	pdf	A pdf in dist
+repo/dist/code.py	text	def distributed(): return 8
+repo/dist/sound.wav	wav
+repo/dist/video.mp4	mp4
+repo/.build/pic.png	png	1
+repo/.build/note.txt	text	A file in .build.
+repo/.build/doc.pdf	pdf	A pdf in dot build
+repo/.build/code.py	text	def dotbuilt(): return 9
+repo/.build/sound.wav	wav
+repo/.build/video.mp4	mp4
+repo/vendor/lib/pic.png	png	1
+repo/vendor/lib/note.txt	text	A file in vendor.
+repo/vendor/lib/doc.pdf	pdf	A pdf in vendor
+repo/vendor/lib/code.py	text	def vendored(): return 10
+repo/vendor/lib/sound.wav	wav
+repo/vendor/lib/video.mp4	mp4
+repo/ignored-stuff/pic.png	png	1
+repo/ignored-stuff/note.txt	text	A file in a git-ignored folder.
+repo/ignored-stuff/doc.pdf	pdf	A pdf in a git-ignored folder
+repo/ignored-stuff/code.py	text	def ignored(): return 11
+repo/ignored-stuff/sound.wav	wav
+repo/ignored-stuff/video.mp4	mp4
+never-picked/secret.txt	text	A file in a folder that nobody picks.
+never-picked/secret.png	png	2

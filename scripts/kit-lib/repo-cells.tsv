@@ -1,0 +1,7 @@
+# The two golden repo cells of the S8 tree (job 2, plan 7, t1), written by hand; expected values are never read from the product. They are apart from
+# gate-matrix.csv and tree.tsv because a repo cell holds many files (GateMatrixTableTests wants one file and one zq token a cell).
+# Columns, tab separated: cell, folder under home/Developer (made by kit-fixtures.sh build repos), files in the index
+# (comma separated, relative to the folder), files not in the index (the same). Code files are never read, so every code file and every excluded file is
+# in the second list; check_S8_5 reads the index for each.
+golden-repo-api-client	api-client	docs/retry-notes.md,docs/retry-diagram.png	retry.swift,auth.swift,pagination.swift,cache.swift,ratelimit.swift,url.swift,upload.swift,errors.swift,signing.swift,json.swift,client.swift,session.swift,scratch-output.swift,node_modules/leftpad/index.js,Pods/Alamofire/Source.swift,build/output.js,dist/bundle.js,.build/debug/module.swift,vendor/github/lib.go,certs/server.pem,certs/signing.key,certs/bundle.p12,certs/client.pfx,id_rsa.txt,.env.local.md,vault.kdbx
+golden-repo-legacy-sync	legacy-sync	docs/diagram.png	merge.swift
