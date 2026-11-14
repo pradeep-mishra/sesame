@@ -52,7 +52,7 @@ A damaged file, or a password-protected PDF, is skipped and listed in Settings a
 
 ## Install
 
-1. Download `Sesame-1.0.0.dmg` from the Releases page of this repository.
+1. Download `Sesame-1.0.0.dmg` from the [Releases page](https://github.com/pradeep-mishra/sesame/releases/latest) of this repository.
 2. Open it and drag Sesame to Applications.
 3. Open Sesame from Applications.
 
