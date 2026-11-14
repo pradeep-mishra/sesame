@@ -1,7 +1,9 @@
 # SwiftPM, Xcode and editor state
 .build/
 dist/
+release/
 .swiftpm/
+scripts/release.sh
 DerivedData/
 *.xcodeproj/xcuserdata/
 *.xcworkspace/xcuserdata/
@@ -42,6 +44,11 @@ logs/
 *.pfx
 *.mobileprovision
 *.cer
+*.p8
+AuthKey_*
+*.provisionprofile
+*.keychain
+*.keychain-db
 id_rsa*
 *.kdbx
 credentials*.json

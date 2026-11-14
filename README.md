@@ -50,6 +50,14 @@ A damaged file, or a password-protected PDF, is skipped and listed in Settings a
 - cmake and git, to build llama.cpp (`scripts/build-llama.sh` calls both).
 - About 865 MB of disk for the model. Sesame downloads it on first run.
 
+## Install
+
+1. Download `Sesame-1.0.0.dmg` from the Releases page of this repository.
+2. Open it and drag Sesame to Applications.
+3. Open Sesame from Applications.
+
+It needs macOS 14 or later on Apple silicon. The first run downloads the search model (about 865 MB) and asks for the permissions listed in Requirements.
+
 ## Build and run
 
 These steps come from reading the scripts. None of them were run for this README.
@@ -94,6 +102,8 @@ First launch:
 - Speech recognition: `Info.plist` has a usage string saying Sesame turns 30 seconds of a recording into words on this Mac with Apple's speech recognition. The spec says this prompt may appear.
 - Sesame never asks for Full Disk Access, camera or microphone.
 
+For maintainers: `scripts/release.sh` makes the signed and notarized DMG. It needs a Developer ID Application certificate and a notarytool keychain profile.
+
 Sesame keeps its model, index and settings in `~/Library/Application Support/Sesame/`.
 
 Not confirmed by reading: that the whole sequence works on a clean Mac, the exact prompts macOS shows, and whether the build needs anything beyond the tools named above.
@@ -127,7 +137,7 @@ The scripts named `kit-*` drive the real app and build test files:
 
 ## Status
 
-Version 0.1.0. It is a local build for one person. Code search is not in this release.
+Version 1.0.0. Code search is not in this release.
 
 Some real-app proof checks have not been run yet, so parts of the app are covered by unit tests only.
 
